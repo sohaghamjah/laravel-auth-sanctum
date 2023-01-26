@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request){
         $user = User::where('phone', $request->phone)->first();
  
-        if (! $user || ! Hash::check($request->p`assword, $user->password)) {
+        if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'phone' => ['Phone or password dosen\' match.'],
             ]);
@@ -36,6 +36,17 @@ class AuthController extends Controller
         ]);
 
         return $this->makeToken($user);
+    }
+
+    public function logout(Request $request){
+        $request->user()->tokens()->delete();
+
+        return sendSuccessResponse(false, 'User Logout', 200);
+    }
+
+
+    public function user(Request $request){
+        return AuthResource::make($request->user());
     }
 
 

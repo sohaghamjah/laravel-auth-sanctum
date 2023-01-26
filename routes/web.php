@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', function () {
+    return sendSuccessResponse(false, 'User unauthenticated!', 200);
+})->name('login');
