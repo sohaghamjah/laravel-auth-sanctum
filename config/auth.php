@@ -45,7 +45,7 @@ return [
             'provider' => 'users',
         ],
         'user-api' => [
-            'driver' => 'token',
+            'driver' => 'sanctum',
             'provider' => 'users',
         ],
         'admin' => [
@@ -53,7 +53,7 @@ return [
             'provider' => 'admins',
         ],
         'admin-api' => [
-            'driver' => 'token',
+            'driver' => 'sanctum',
             'provider' => 'admins',
         ],
         'seller' => [
@@ -61,7 +61,7 @@ return [
             'provider' => 'sellers',
         ],
         'seller-api' => [
-            'driver' => 'token',
+            'driver' => 'sanctum',
             'provider' => 'sellers',
         ],
     ],
